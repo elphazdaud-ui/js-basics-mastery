@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM manipulation</title>
+  </head>
+  <body>
+    <h1 class="title">Welcome in my todo app</h1>
+    <p>use the add button aside to add your todo tasks!</p>
+    <input
+      type="text"
+      id="todo-input"
+      placeholder="enter your todo tasks here"
+    />
+    <button id="add-button">ADD</button>
+    <ul id="todoList"></ul>
+    <!-- showing how to select an element using get by ID AND  querySelectors , plus changing content of an element and decoration -->
+    <script>
+      const input = document.getElementById("todo-input");
+      const addBtn = document.getElementById("add-button");
+      const list = document.getElementById("todoList");
+      const heading = document.querySelector(".title");
+      heading.textContent = "WELCOME TO YOUR FAVORITE TODO APP";
+      heading.style.textAlign = "center";
+
+      addBtn.addEventListener("click", function () {
+        const todoText = input.value.trim();
+        if (todoText === "") {
+          alert("enter your todos!🤪");
+          return;
+        }
+        const li = document.createElement("li");
+        li.textContent = todoText;
+
+        deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "🗑";
+
+        deleteBtn.addEventListener("click", function () {
+          alert("surely!!?");
+          li.remove();
+        });
+        li.append(deleteBtn);
+        list.append(li);
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>
